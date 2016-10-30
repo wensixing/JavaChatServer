@@ -21,7 +21,7 @@ public class RankManager {
                 if (inst == null) {
                     inst = new RankManager();
                     inst.scorer = new ScorerService();
-                    RankRanker ranker = new RankRanker(10 * 1000); // 1 hour
+                    RankRanker ranker = new RankRanker(10 * 1000); // sort every 10s
                     ranker.start();
                 }
             }

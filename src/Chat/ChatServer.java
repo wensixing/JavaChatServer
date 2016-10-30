@@ -8,7 +8,7 @@ import java.net.Socket;
  * Created by sixing.wen on 10/27/16.
  */
 public class ChatServer {
-    private static final int LISTEN_PORT = 8933;
+    private static final int LISTEN_PORT = 8988;
 
     public static void main(String[] args) {
 
