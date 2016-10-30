@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="com.ea.chat.scorer">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/com.ea.chat.scorer.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
