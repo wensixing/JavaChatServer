@@ -2,6 +2,7 @@
 
 
 Controll:
+
 | Commands      | Discription      |
 | ------------- |:-------------|
 | /rank       | Comment on one topic. If topic doesn't exist, system will create it for you. |
