@@ -34,9 +34,4 @@ public class TopicManager {
     public boolean contains(String topicName) {
         return topics.containsKey(topicName);
     }
-    public void removeUserFromTopic(User user) {
-        for (Map.Entry<String, Topic> entry : user.getTopics().entrySet()) {
-            entry.getValue().removeUser(user);
-        }
-    }
 }

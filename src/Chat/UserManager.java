@@ -31,7 +31,4 @@ public class UserManager {
     public boolean containUser(String name) {
         return users.containsKey(name);
     }
-//    public void remove(String name) {
-//        users.remove(name);
-//    }
 }
