@@ -91,9 +91,25 @@ class Connector extends Thread {
             readTopic(topicName);
         } else if (cmds.get(0).equalsIgnoreCase("/rank")) {
             getRank();
-        } else  {
+        } else if (cmds.get(0).equalsIgnoreCase("/help")) {
+            help();
+        } else {
             respondSingleMsg("[System] Wrong cmd ! try it again");
         }
+    }
+
+    private void help() {
+        List<String> msgs = new ArrayList<String>();
+        msgs.add("--------- Manual ----------");
+        msgs.add("/rank              -- Check top 10 user.");
+        msgs.add("/send  [TOPIC]     -- Comment on one topic. If topic doesn't exist, system will create it for you.");
+        msgs.add("/sub   [TOPIC]     -- Subscribe one topic. ");
+        msgs.add("/unsub [TOPIC]     -- UnSubscribe one topic.");
+        msgs.add("/read  [TOPIC]     -- Read latest 10 comments from one topic.");
+        msgs.add("/help");
+        msgs.add("/exit");
+        msgs.add("---------------------------");
+        respondMsgs(msgs);
     }
 
     private void getRank() {
@@ -220,6 +236,7 @@ class Connector extends Thread {
         UserManager.getInstance().addUser(user);
         RankManager.getInstance().addUser(user);
         respondSingleMsg("[System] Thank you ! Register complete !");
+        help();
     }
 
     public synchronized void respondSingleMsg(String msg) {
