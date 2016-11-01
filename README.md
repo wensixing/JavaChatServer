@@ -17,6 +17,16 @@ Controll:
 | /help |     |
 | /exit | quit this chat application      |
 
+Usage:
+Server Deploy:
+```
+Java -jar JavaChatServer.jar
+```
+Client Connect:
+```
+Telnet SERVER_IP 8988
+```
+
 TODO:
 
 * System will open a thread for every socket. Not so efficient.
