@@ -15,3 +15,10 @@ Controll:
 | /read  [TOPIC]  | Read latest 10 comments from one topic.      |
 | /help |     |
 | /exit | quit this chat application      |
+
+TODO:
+
+* System will open a thread for every socket. Not so efficient.
+  * Build epoll or mysql connection pool-like system.
+
+* Use database.
