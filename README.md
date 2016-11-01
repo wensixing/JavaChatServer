@@ -1,8 +1,9 @@
 # JavaChatServer -- Similar to forums
-
+Multi-threaded and thread-safe.
 * User can comment on one topic.
 * User can subscribe one topic to get realtime comment notification.
-* User will get points when he posts some comments. You can check top 10 users.
+* User will get points asynchronously when he posts one comment (10% failure rate). You can check top 10 users.
+* Rank will update every 1 mins.
 
 Controll:
 
