@@ -9,11 +9,11 @@ import java.util.*;
 public class RankManager {
     private static RankManager inst = null;
     private ScorerService scorer;
-    /* real time
+    /* Real time rank
     Map<String, Integer> userScore = Collections.synchronizedMap(new HashMap());
     Map<Integer, Set<String>> scoreUser = Collections.synchronizedMap(new HashMap());
     */
-    // asynchronous
+    // Asynchronous rank
     List<User> userScores = Collections.synchronizedList(new ArrayList<User>());
     public static RankManager getInstance() {
         if (inst == null) {

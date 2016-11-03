@@ -73,11 +73,12 @@ class Connector extends Thread {
         List<String> cmds = spliteComand(str);
         if (cmds.get(0).equalsIgnoreCase("/send")) {
             if (cmds.get(1).length() == 0) {
-                respondSingleMsg("[System] Wrong cmd");
+                respondSingleMsg("[System] Wrong commands");
                 return;
             }
             state = "MSG";
             targetTopicName = cmds.get(1);
+            respondSingleMsg("[System] Please input your comment below : ");
         } else if (cmds.get(0).equalsIgnoreCase("/topics")) {
             getTopicList();
         } else if (cmds.get(0).equalsIgnoreCase("/sub")) {
@@ -94,7 +95,7 @@ class Connector extends Thread {
         } else if (cmds.get(0).equalsIgnoreCase("/help")) {
             help();
         } else {
-            respondSingleMsg("[System] Wrong cmd ! try it again");
+            respondSingleMsg("[System] Wrong commands ! Try again");
         }
     }
 
@@ -115,7 +116,7 @@ class Connector extends Thread {
     private void getRank() {
         List<User> list = RankManager.getInstance().getUserScores();
         List<String> msgs = new ArrayList<String>();
-        msgs.add("[System] The top 10 user are below");
+        msgs.add("[System] The top 10 users (total : " + list.size() + ") are below : ");
         for (int i = 0; i < Math.min(list.size(), 10); i ++) {
             User cur = list.get(i);
             msgs.add("[ " + cur.getName() + " ]" + " (" + cur.getScore() + ")");
@@ -176,7 +177,7 @@ class Connector extends Thread {
             return;
         }
         if (! user.containTopic(topicName)) {
-            respondSingleMsg("[System] Didn't subscribe this topic !");
+            respondSingleMsg("[System] You didn't subscribe this topic !");
             return;
         }
         Topic inst = TopicManager.getInstance().getTopic(topicName);
@@ -230,13 +231,13 @@ class Connector extends Thread {
             user = UserManager.getInstance().getUser(name);
             user.setConnector(this);
             respondSingleMsg("[System] Welcome back");
-            return;
+        } else {
+            user = new User(name, this);
+            UserManager.getInstance().addUser(user);
+            RankManager.getInstance().addUser(user);
+            respondSingleMsg("[System] Thank you ! Register complete !");
+            help();
         }
-        user = new User(name, this);
-        UserManager.getInstance().addUser(user);
-        RankManager.getInstance().addUser(user);
-        respondSingleMsg("[System] Thank you ! Register complete !");
-        help();
     }
 
     public synchronized void respondSingleMsg(String msg) {

@@ -16,7 +16,7 @@ public class Topic {
         return name;
     }
     private void addMsg(String msg) {
-        if (msgs.size() > 10) {
+        if (msgs.size() >= 10) {
             msgs.remove(0);
         }
         msgs.add(msg);
