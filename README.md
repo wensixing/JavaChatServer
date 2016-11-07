@@ -20,7 +20,7 @@ Controll:
 Usage:
 Server Deploy:
 ```
-Java -jar JavaChatServer.jar
+Java -jar ChatApplication.jar
 ```
 Client Connect:
 ```
